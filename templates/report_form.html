@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Report Form</title>
+</head>
+<body>
+    <form action="/form_data" method="post">
+        <fieldset>
+         <legend>Get Weather Report</legend>
+
+           <label for="address">Address *</label>
+           <input id="address" name="address" placeholder="Santa Ana, CA 92707" maxlength=20 title="Please enter an address, could be just a city or Zip" required />
+           <p></p>
+           <label for="date">Date *</label>
+           <input type="date" name="date" id="date" placeholder="e.g. 10/27/2017" title="Please enter a valid date" required />
+           <label for="weeks">Weeks</label>
+           <input type="number" id="weeks" name="weeks" min="1" max="4" placeholder="1..4" value="1"/>
+            <br>
+            <span>Enter a number of weeks prior to this date, between 1 and 4, default is 1</span>
+        </fieldset>
+        <input type="submit" value="Get Report" />
+    </form>
+</body>
+</html>

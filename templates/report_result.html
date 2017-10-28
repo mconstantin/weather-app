@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Report</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Symbol</th>
+            <th>Summary</th>
+            <th>Wind Speed</th>
+            <th>Max Temp</th>
+            <th>Min Temp</th>
+            <th>Chance of rain</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in data %}
+            <tr>
+                <td scope="row">{{ d['date'] }}</td>
+                <td><img width="64" height="64" src={{ '/static/images/' + d['icon'] + '.png' }} alt={{ d['icon'] }}/></td>
+                <td>{{ d['summary'] }}</td>
+                <td>{{ d['windSpeed'] }}</td>
+                <td>{{ '%3.0fF' | format(d['temperatureHigh']) }}</td>
+                <td>{{ '%3.0fF' | format(d['temperatureLow']) }}</td>
+                <td>{{ '%2.0f%%' | format(d['precipProbability'] * 100) }}</td>
+            </tr>
+        {% endfor %}
+
+    <tbody>
+
+    </table>
+</body>
+</html>
