@@ -3,23 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Report Form</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <form action="/form_data" method="post">
-        <fieldset>
-         <legend>Get Weather Report</legend>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-1">
 
-           <label for="address">Address *</label>
-           <input id="address" name="address" placeholder="Santa Ana, CA 92707" maxlength=20 title="Please enter an address, could be just a city or Zip" required />
-           <p></p>
-           <label for="date">Date *</label>
-           <input type="date" name="date" id="date" placeholder="e.g. 10/27/2017" title="Please enter a valid date" required />
-           <label for="weeks">Weeks</label>
-           <input type="number" id="weeks" name="weeks" min="1" max="4" placeholder="1..4" value="1"/>
-            <br>
-            <span>Enter a number of weeks prior to this date, between 1 and 4, default is 1</span>
-        </fieldset>
-        <input type="submit" value="Get Report" />
-    </form>
+                <form action="/form_data" method="post">
+                  <div class="form-group">
+                    <label for="address">Address *</label>
+                    <input class="form-control" id="address" name="address" placeholder="Santa Ana, CA 92707"
+                           maxlength=20 title="Please enter an address, could be just a city or Zip" required />
+                    <small id="addressHelp" class="form-text text-muted">Usually enter city/state or zip.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="date">Date *</label>
+                    <input class="form-control" type="date" name="date" id="date" placeholder="e.g. 10/27/2017" title="Please enter a valid date" required />
+                    <small id="dateHelp" class="form-text text-muted">Enter today's or a past date.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="weeks">Weeks</label>
+                    <input class="form-control" type="number" id="weeks" name="weeks" min="1" max="4" value="1"/>
+                    <small id="weeksHelp" class="form-text text-muted">Enter number of weeks to see prior to the date above, between 1 and 4, default is 1 week.</small>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
 </body>
 </html>
